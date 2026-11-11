@@ -4,82 +4,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ALVIAN PHONE STORE - Toko smartphone dengan pilihan lengkap dan harga terbaik.">
-  <title>ALVIAN PHONE STORE | Smartphone Store</title>
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="ALVIAN PHONE STORE - Toko smartphone modern dengan pilihan harga lengkap.">
+  <title>ALVIAN PHONE STORE | Premium Smartphone</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
-  <a href="#" class="logo">ALVIAN<span>PHONE.</span></a>
+  <a href="#home" class="logo">
+    ALVIAN<span>PHONE</span><i>.</i>
+  </a>
 
   <nav>
     <a href="#home">Home</a>
     <a href="#produk">Produk</a>
-    <a href="#keunggulan">Keunggulan</a>
+    <a href="#tentang">Tentang</a>
   </nav>
 
-  <a href="#keranjang" class="cart-link">
-    <span>🛒</span> Keranjang
+  <a href="#keranjang" class="nav-cart">
+    🛒 <span>Keranjang</span>
     <b id="cartCount">0</b>
   </a>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <span class="eyebrow">WELCOME TO ALVIAN PHONE STORE</span>
-    <h1>Upgrade Your<br><span>Digital Lifestyle.</span></h1>
+    <div class="hero-label">
+      <span class="live-dot"></span>
+      PREMIUM SMARTPHONE STORE
+    </div>
+
+    <h1>
+      Find Your<br>
+      <span>Perfect Phone.</span>
+    </h1>
+
     <p>
-      Temukan smartphone impianmu dari berbagai merek
-      dengan pilihan harga yang sesuai budget.
+      Temukan smartphone impianmu. Mulai dari HP
+      harga terjangkau sampai smartphone flagship
+      dengan teknologi terbaru.
     </p>
-    <a href="#produk" class="primary-btn">Jelajahi Produk →</a>
+
+    <div class="hero-buttons">
+      <a href="#produk" class="btn-primary">
+        Jelajahi Produk <span>→</span>
+      </a>
+      <a href="#tentang" class="btn-secondary">
+        Tentang Kami
+      </a>
+    </div>
 
     <div class="hero-stats">
-      <div><strong>30+</strong><small>Pilihan HP</small></div>
-      <div><strong>8</strong><small>Merek populer</small></div>
-      <div><strong>100%</strong><small>Belanja mudah</small></div>
+      <div>
+        <strong>30+</strong>
+        <small>Produk HP</small>
+      </div>
+      <div>
+        <strong>8+</strong>
+        <small>Merek Populer</small>
+      </div>
+      <div>
+        <strong>24/7</strong>
+        <small>Pesan Online</small>
+      </div>
     </div>
   </div>
 
   <div class="hero-visual">
-    <div class="glow"></div>
-    <div class="phone-art">
-      <div class="camera"></div>
-      <div class="screen-text">A</div>
-      <div class="screen-caption">PHONE STORE</div>
+    <div class="blue-glow"></div>
+
+    <div class="hero-phone phone-back">
+      <div class="hero-camera">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <div class="floating-card">
+
+    <div class="hero-phone phone-front">
+      <div class="dynamic-island"></div>
+      <div class="wallpaper">
+        <span>ALVIAN</span>
+        <small>PHONE STORE</small>
+      </div>
+    </div>
+
+    <div class="floating-info">
       <span>✦</span>
       <div>
-        <b>Best Smartphone</b>
-        <small>Find your favorite</small>
+        <b>Premium Collection</b>
+        <small>Choose your smartphone</small>
       </div>
     </div>
   </div>
 </section>
 
-<section class="benefits" id="keunggulan">
-  <div>🚚 <span><b>Pengiriman mudah</b><small>Informasi pengiriman melalui admin</small></span></div>
-  <div>💎 <span><b>Pilihan lengkap</b><small>Berbagai merek smartphone</small></span></div>
-  <div>💬 <span><b>Pesan via WhatsApp</b><small>Konsultasi langsung dengan admin</small></span></div>
-</section>
-
-<main class="main-container" id="produk">
-
-  <div class="section-heading">
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefit-item">
+    <div class="benefit-icon">✦</div>
     <div>
-      <span class="eyebrow">OUR COLLECTION</span>
-      <h2>Explore Smartphones.</h2>
-      <p>Pilih smartphone favoritmu sesuai kebutuhan.</p>
+      <b>Pilihan Lengkap</b>
+      <small>Berbagai merek smartphone</small>
     </div>
-    <span class="product-total" id="productTotal">30 Produk</span>
   </div>
 
-  <div class="toolbar">
+  <div class="benefit-item">
+    <div class="benefit-icon">◇</div>
+    <div>
+      <b>Harga Transparan</b>
+      <small>Informasi harga setiap produk</small>
+    </div>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">⌁</div>
+    <div>
+      <b>Pesan Mudah</b>
+      <small>Checkout langsung WhatsApp</small>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<main class="container" id="produk">
+
+  <div class="section-header">
+    <div>
+      <span class="section-label">OUR COLLECTION</span>
+      <h2>Explore <span>Smartphones.</span></h2>
+      <p>Pilih smartphone terbaik sesuai kebutuhan dan budget kamu.</p>
+    </div>
+
+    <div class="product-counter">
+      <span id="productTotal">30</span> Produk
+    </div>
+  </div>
+
+  <!-- SEARCH AND FILTER -->
+  <div class="filter-panel">
+
     <div class="search-box">
       <span>⌕</span>
-      <input type="search" id="search" placeholder="Cari nama smartphone...">
+      <input
+        type="search"
+        id="search"
+        placeholder="Cari nama HP atau merek..."
+      >
     </div>
 
     <select id="brand">
@@ -112,50 +184,75 @@
     </select>
   </div>
 
+  <!-- BRAND CATEGORY -->
   <div class="category-list">
-    <button class="category active" data-category="">Semua</button>
-    <button class="category" data-category="Infinix">Infinix</button>
-    <button class="category" data-category="Samsung">Samsung</button>
-    <button class="category" data-category="Xiaomi">Xiaomi</button>
-    <button class="category" data-category="Apple">iPhone</button>
-    <button class="category" data-category="OPPO">OPPO</button>
-    <button class="category" data-category="Vivo">Vivo</button>
+    <button class="category active" data-brand="">Semua</button>
+    <button class="category" data-brand="Samsung">Samsung</button>
+    <button class="category" data-brand="Apple">iPhone</button>
+    <button class="category" data-brand="Xiaomi">Xiaomi</button>
+    <button class="category" data-brand="POCO">POCO</button>
+    <button class="category" data-brand="OPPO">OPPO</button>
+    <button class="category" data-brand="Vivo">Vivo</button>
+    <button class="category" data-brand="Realme">Realme</button>
+    <button class="category" data-brand="Infinix">Infinix</button>
   </div>
 
+  <!-- PRODUCT LIST -->
   <div class="product-grid" id="productList"></div>
 
-  <div class="cart-section" id="keranjang">
+  <!-- SHOPPING CART -->
+  <section class="cart-section" id="keranjang">
     <div class="cart-heading">
       <div>
-        <span class="eyebrow">YOUR SHOPPING</span>
-        <h2>Keranjang Belanja</h2>
+        <span class="section-label">YOUR SHOPPING CART</span>
+        <h2>Keranjang <span>Belanja.</span></h2>
       </div>
-      <span class="cart-icon">🛒</span>
+      <div class="cart-symbol">🛒</div>
     </div>
 
     <div id="cartList">
-      <p class="empty-cart">Keranjang belanja masih kosong.</p>
+      <p class="empty-cart">Keranjang belanja kamu masih kosong.</p>
     </div>
 
     <div class="cart-summary">
-      <span>Total Belanja</span>
+      <span>Total Pembayaran</span>
       <strong id="total">Rp0</strong>
     </div>
 
     <button class="checkout-btn" onclick="checkout()">
-      Checkout via WhatsApp →
+      Checkout Sekarang <span>→</span>
     </button>
-  </div>
+  </section>
 
 </main>
 
+<!-- ABOUT -->
+<section class="about-section" id="tentang">
+  <div>
+    <span class="section-label">ABOUT OUR STORE</span>
+    <h2>Technology Meets<br><span>Better Lifestyle.</span></h2>
+  </div>
+  <p>
+    ALVIAN PHONE STORE hadir sebagai katalog smartphone
+    dengan berbagai pilihan merek, spesifikasi, dan harga.
+    Temukan perangkat yang sesuai dengan kebutuhanmu.
+  </p>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <a href="#" class="logo">ALVIAN<span>PHONE.</span></a>
-  <p>Smartphone terbaik untuk gaya hidup digitalmu.</p>
+  <a href="#home" class="logo">ALVIAN<span>PHONE</span><i>.</i></a>
+  <p>Your Smartphone. Your Lifestyle.</p>
   <small>© 2026 ALVIAN PHONE STORE. All Rights Reserved.</small>
 </footer>
 
 <script>
+// ==================================
+// DATA PRODUK
+// Harga merupakan contoh dan harus
+// disesuaikan dengan harga toko.
+// ==================================
+
 const products = [
   {id:1,name:"Infinix Smart 9",brand:"Infinix",price:899000,ram:"3GB",rom:"64GB",tag:"Hemat"},
   {id:2,name:"Redmi A5",brand:"Xiaomi",price:1099000,ram:"4GB",rom:"128GB"},
@@ -177,8 +274,8 @@ const products = [
   {id:18,name:"Xiaomi 14T",brand:"Xiaomi",price:6499000,ram:"12GB",rom:"256GB"},
   {id:19,name:"Vivo V50",brand:"Vivo",price:6999000,ram:"12GB",rom:"256GB"},
   {id:20,name:"OPPO Reno13 5G",brand:"OPPO",price:7999000,ram:"12GB",rom:"256GB"},
-  {id:21,name:"Samsung Galaxy S25",brand:"Samsung",price:13999000,ram:"12GB",rom:"256GB"},
-  {id:22,name:"iPhone 15",brand:"Apple",price:11999000,ram:"6GB",rom:"128GB"},
+  {id:21,name:"iPhone 15",brand:"Apple",price:11999000,ram:"6GB",rom:"128GB"},
+  {id:22,name:"Samsung Galaxy S25",brand:"Samsung",price:13999000,ram:"12GB",rom:"256GB"},
   {id:23,name:"iPhone 16",brand:"Apple",price:14999000,ram:"8GB",rom:"128GB"},
   {id:24,name:"Xiaomi 15",brand:"Xiaomi",price:14999000,ram:"12GB",rom:"256GB"},
   {id:25,name:"Samsung Galaxy S25+",brand:"Samsung",price:16999000,ram:"12GB",rom:"256GB"},
@@ -189,17 +286,25 @@ const products = [
   {id:30,name:"iPhone 17 Pro Max",brand:"Apple",price:25999000,ram:"12GB",rom:"256GB"}
 ];
 
-// HARGA DAN SPESIFIKASI DI ATAS ADALAH CONTOH.
-// PERBARUI SESUAI HARGA DAN VARIAN STOK TOKO.
+// ==================================
+// PENGATURAN TOKO
+// ==================================
+
+const WHATSAPP_NUMBER = "6281234567890";
 
 let cart = [];
-let selectedBrand = "";
+let activeBrand = "";
 
-const rupiah = n => new Intl.NumberFormat("id-ID", {
-  style:"currency",
-  currency:"IDR",
-  maximumFractionDigits:0
-}).format(n);
+const formatRupiah = number =>
+  new Intl.NumberFormat("id-ID", {
+    style:"currency",
+    currency:"IDR",
+    maximumFractionDigits:0
+  }).format(number);
+
+// ==================================
+// FILTER PRODUK
+// ==================================
 
 function renderProducts() {
   const keyword = document.getElementById("search").value.toLowerCase();
@@ -208,62 +313,85 @@ function renderProducts() {
   const sort = document.getElementById("sort").value;
 
   let data = products.filter(p => {
-    const nameMatch =
+    const searchMatch =
       p.name.toLowerCase().includes(keyword) ||
       p.brand.toLowerCase().includes(keyword);
 
     const brandMatch = !brand || p.brand === brand;
+
     let priceMatch = true;
 
-    if(price==="1") priceMatch=p.price<1000000;
-    if(price==="2") priceMatch=p.price>=1000000 && p.price<=3000000;
-    if(price==="3") priceMatch=p.price>3000000 && p.price<=5000000;
-    if(price==="4") priceMatch=p.price>5000000 && p.price<=10000000;
-    if(price==="5") priceMatch=p.price>10000000 && p.price<=15000000;
-    if(price==="6") priceMatch=p.price>15000000;
+    if(price==="1") priceMatch = p.price < 1000000;
+    if(price==="2") priceMatch = p.price >= 1000000 && p.price <= 3000000;
+    if(price==="3") priceMatch = p.price > 3000000 && p.price <= 5000000;
+    if(price==="4") priceMatch = p.price > 5000000 && p.price <= 10000000;
+    if(price==="5") priceMatch = p.price > 10000000 && p.price <= 15000000;
+    if(price==="6") priceMatch = p.price > 15000000;
 
-    return nameMatch && brandMatch && priceMatch &&
-      (!selectedBrand || p.brand===selectedBrand);
+    const categoryMatch = !activeBrand || p.brand === activeBrand;
+
+    return searchMatch && brandMatch && priceMatch && categoryMatch;
   });
 
   if(sort==="low") data.sort((a,b)=>a.price-b.price);
   if(sort==="high") data.sort((a,b)=>b.price-a.price);
   if(sort==="name") data.sort((a,b)=>a.name.localeCompare(b.name));
 
-  document.getElementById("productTotal").textContent =
-    data.length + " Produk";
+  document.getElementById("productTotal").textContent = data.length;
 
   const list = document.getElementById("productList");
 
-  if(!data.length) {
-    list.innerHTML='<div class="no-result">Produk tidak ditemukan. Coba pencarian lain.</div>';
+  if(data.length===0) {
+    list.innerHTML = `
+      <div class="no-result">
+        <h3>Produk tidak ditemukan</h3>
+        <p>Coba gunakan kata pencarian atau filter lain.</p>
+      </div>`;
     return;
   }
 
-  list.innerHTML = data.map((p,index)=>`
+  list.innerHTML = data.map(p => `
     <article class="product-card">
       <div class="product-image image-${p.id % 6}">
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ""}
+
         <div class="phone-preview">
           <div class="phone-camera"></div>
-          <span>${p.brand==="Apple" ? "●" : "✦"}</span>
+          <div class="phone-screen-symbol">
+            ${p.brand==="Apple" ? "●" : "✦"}
+          </div>
         </div>
       </div>
+
       <div class="product-info">
         <span class="brand-name">${p.brand}</span>
         <h3>${p.name}</h3>
-        <p class="specification">RAM ${p.ram} <i></i> ROM ${p.rom}</p>
+
+        <div class="specification">
+          <span>RAM ${p.ram}</span>
+          <span>ROM ${p.rom}</span>
+        </div>
+
         <div class="product-bottom">
           <div>
-            <small>Harga mulai</small>
-            <strong>${rupiah(p.price)}</strong>
+            <small>Harga produk</small>
+            <strong>${formatRupiah(p.price)}</strong>
           </div>
-          <button class="add-btn" onclick="addCart(${p.id})" aria-label="Tambah ${p.name}">+</button>
+
+          <button class="add-btn"
+            onclick="addCart(${p.id})"
+            aria-label="Tambah ${p.name} ke keranjang">
+            +
+          </button>
         </div>
       </div>
     </article>
   `).join("");
 }
+
+// ==================================
+// KERANJANG
+// ==================================
 
 function addCart(id) {
   const product = products.find(p=>p.id===id);
@@ -276,87 +404,127 @@ function addCart(id) {
 }
 
 function changeQty(id,amount) {
-  const item=cart.find(p=>p.id===id);
+  const item = cart.find(p=>p.id===id);
   if(!item) return;
 
-  item.qty+=amount;
-  if(item.qty<=0) cart=cart.filter(p=>p.id!==id);
+  item.qty += amount;
+
+  if(item.qty<=0) {
+    cart = cart.filter(p=>p.id!==id);
+  }
 
   renderCart();
 }
 
 function removeCart(id) {
-  cart=cart.filter(p=>p.id!==id);
+  cart = cart.filter(p=>p.id!==id);
   renderCart();
 }
 
 function renderCart() {
-  const list=document.getElementById("cartList");
+  const list = document.getElementById("cartList");
 
-  document.getElementById("cartCount").textContent =
-    cart.reduce((sum,p)=>sum+p.qty,0);
+  const count = cart.reduce((sum,p)=>sum+p.qty,0);
 
-  if(!cart.length) {
-    list.innerHTML='<p class="empty-cart">Keranjang belanja masih kosong.</p>';
+  document.getElementById("cartCount").textContent = count;
+
+  if(cart.length===0) {
+    list.innerHTML = `
+      <p class="empty-cart">
+        Keranjang belanja kamu masih kosong.
+      </p>`;
   } else {
-    list.innerHTML=cart.map(p=>`
+    list.innerHTML = cart.map(p=>`
       <div class="cart-item">
         <div class="cart-product">
           <b>${p.name}</b>
-          <small>${rupiah(p.price)} / unit</small>
+          <small>${formatRupiah(p.price)} × ${p.qty}</small>
         </div>
+
         <div class="quantity">
           <button onclick="changeQty(${p.id},-1)">−</button>
           <span>${p.qty}</span>
           <button onclick="changeQty(${p.id},1)">+</button>
-          <button class="remove-btn" onclick="removeCart(${p.id})">Hapus</button>
+          <button class="remove-btn" onclick="removeCart(${p.id})">
+            Hapus
+          </button>
         </div>
       </div>
     `).join("");
   }
 
-  const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
-  document.getElementById("total").textContent=rupiah(total);
+  const total = cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+
+  document.getElementById("total").textContent = formatRupiah(total);
 }
 
+// ==================================
+// CHECKOUT WHATSAPP
+// ==================================
+
 function checkout() {
-  if(!cart.length) {
-    alert("Keranjang masih kosong!");
+  if(cart.length===0) {
+    alert("Keranjang belanja masih kosong!");
     return;
   }
 
-  // GANTI DENGAN NOMOR WHATSAPP TOKO KAMU.
-  const phone="6281234567890";
+  if(!/^62\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+    alert("Nomor WhatsApp toko belum diatur dengan benar.");
+    return;
+  }
 
-  let message="Halo ALVIAN PHONE STORE, saya ingin memesan:\n\n";
+  let message = "Halo ALVIAN PHONE STORE, saya ingin memesan:\n\n";
 
   cart.forEach(p=>{
-    message+=`${p.name} x ${p.qty} = ${rupiah(p.price*p.qty)}\n`;
+    message +=
+      `${p.name} x ${p.qty} = ${formatRupiah(p.price*p.qty)}\n`;
   });
 
-  const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
-  message+=`\nTotal: ${rupiah(total)}\nMohon konfirmasi stok dan cara pembayaran. Terima kasih.`;
+  const total = cart.reduce((sum,p)=>sum+p.price*p.qty,0);
 
-  window.open(
-    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
+  message += `\nTotal belanja: ${formatRupiah(total)}`;
+  message += "\nMohon konfirmasi stok dan pembayaran. Terima kasih.";
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(url,"_blank","noopener,noreferrer");
 }
 
-document.getElementById("search").addEventListener("input",renderProducts);
-document.getElementById("brand").addEventListener("change",renderProducts);
-document.getElementById("priceFilter").addEventListener("change",renderProducts);
-document.getElementById("sort").addEventListener("change",renderProducts);
+// ==================================
+// EVENT FILTER
+// ==================================
+
+document.getElementById("search")
+  .addEventListener("input",renderProducts);
+
+document.getElementById("brand")
+  .addEventListener("change",renderProducts);
+
+document.getElementById("priceFilter")
+  .addEventListener("change",renderProducts);
+
+document.getElementById("sort")
+  .addEventListener("change",renderProducts);
 
 document.querySelectorAll(".category").forEach(button=>{
   button.addEventListener("click",()=>{
-    document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".category").forEach(b=>{
+      b.classList.remove("active");
+    });
+
     button.classList.add("active");
-    selectedBrand=button.dataset.category;
-    document.getElementById("brand").value="";
+
+    activeBrand = button.dataset.brand;
+    document.getElementById("brand").value = "";
+
     renderProducts();
   });
 });
+
+// ==================================
+// JALANKAN WEBSITE
+// ==================================
 
 renderProducts();
 renderCart();
