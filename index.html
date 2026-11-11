@@ -1,1 +1,82 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALVIAN PHONE STORE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">ALVIAN <span>PHONE STORE</span></div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#keranjang">Keranjang</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>SMARTPHONE TERBAIK UNTUKMU</h1>
+    <p>Temukan HP impian dengan harga terbaik.</p>
+    <a href="#produk" class="btn">BELANJA SEKARANG</a>
+</section>
+
+<section class="container" id="produk">
+
+    <h2>KATALOG SMARTPHONE</h2>
+    <p class="subtitle">Pilih HP favoritmu dari harga termurah hingga termahal.</p>
+
+    <div class="filters">
+        <input type="text" id="search" placeholder="Cari smartphone...">
+
+        <select id="brand">
+            <option value="">Semua Merek</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Apple">Apple</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="POCO">POCO</option>
+            <option value="OPPO">OPPO</option>
+            <option value="Vivo">Vivo</option>
+            <option value="Realme">Realme</option>
+            <option value="Infinix">Infinix</option>
+        </select>
+
+        <select id="sort">
+            <option value="default">Urutan Default</option>
+            <option value="low">Termurah</option>
+            <option value="high">Termahal</option>
+        </select>
+    </div>
+
+    <div class="product-grid" id="productList"></div>
+
+</section>
+
+<section class="container" id="keranjang">
+
+    <h2>KERANJANG BELANJA</h2>
+
+    <div id="cartList"></div>
+
+    <h3 id="total">Total: Rp0</h3>
+
+    <button class="checkout" onclick="checkout()">
+        CHECKOUT WHATSAPP
+    </button>
+
+</section>
+
+<footer>
+    <h3>ALVIAN PHONE STORE</h3>
+    <p>Smartphone berkualitas dengan harga bersahabat.</p>
+    <p>© 2026 ALVIAN PHONE STORE</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
