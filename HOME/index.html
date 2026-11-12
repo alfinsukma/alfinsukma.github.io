@@ -1,1 +1,295 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEON PHONE - Toko smartphone modern dan terpercaya.">
+  <title>NEON PHONE | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="#" class="logo">NEON<span>PHONE.</span></a>
+
+  <nav id="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#kategori">Kategori</a>
+    <a href="#unggulan">Produk Unggulan</a>
+    <a href="#promo">Promo</a>
+  </nav>
+
+  <a href="produk.html" class="nav-button">Belanja Sekarang ↗</a>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">SMARTPHONE STORE 2026</span>
+
+    <h1>
+      Upgrade Gadget.
+      <span>Upgrade Your Life.</span>
+    </h1>
+
+    <p>
+      Temukan smartphone favoritmu dengan pilihan
+      merek lengkap, spesifikasi menarik, dan harga
+      yang sesuai kebutuhan.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="produk.html" class="btn-primary">Lihat Semua HP →</a>
+      <a href="#kategori" class="btn-outline">Jelajahi Kategori</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <h3>40+</h3>
+        <p>Pilihan HP</p>
+      </div>
+      <div>
+        <h3>10+</h3>
+        <p>Merek Smartphone</p>
+      </div>
+      <div>
+        <h3>100%</h3>
+        <p>Pengalaman Praktis</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="image-glow"></div>
+    <img
+      src="images/hero-phone.png"
+      alt="Smartphone unggulan"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+    >
+    <div class="fallback-phone">📱</div>
+
+    <div class="floating-card">
+      <span>✨</span>
+      <div>
+        <strong>Latest Smartphone</strong>
+        <small>Temukan favoritmu</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST FEATURES -->
+<section class="trust-section">
+  <div class="trust-item">
+    <span>📱</span>
+    <div>
+      <strong>Produk Lengkap</strong>
+      <small>Berbagai pilihan merek</small>
+    </div>
+  </div>
+
+  <div class="trust-item">
+    <span>💰</span>
+    <div>
+      <strong>Harga Bersaing</strong>
+      <small>Sesuaikan dengan budget</small>
+    </div>
+  </div>
+
+  <div class="trust-item">
+    <span>⚡</span>
+    <div>
+      <strong>Pesan Praktis</strong>
+      <small>Hubungi melalui WhatsApp</small>
+    </div>
+  </div>
+
+  <div class="trust-item">
+    <span>🎧</span>
+    <div>
+      <strong>Layanan Pelanggan</strong>
+      <small>Siap membantu pertanyaan</small>
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORI -->
+<section class="section" id="kategori">
+  <div class="section-header">
+    <div>
+      <span class="subtitle">EXPLORE BRANDS</span>
+      <h2>Jelajahi Kategori</h2>
+      <p>Pilih merek smartphone favoritmu.</p>
+    </div>
+    <a href="produk.html" class="text-link">Semua Produk →</a>
+  </div>
+
+  <div class="brand-grid">
+    <a href="produk.html?brand=Samsung" class="brand-card">
+      <div class="brand-icon">S</div>
+      <h3>Samsung</h3>
+      <p>Smartphone Galaxy</p>
+    </a>
+
+    <a href="produk.html?brand=Apple" class="brand-card">
+      <div class="brand-icon">A</div>
+      <h3>Apple</h3>
+      <p>iPhone Series</p>
+    </a>
+
+    <a href="produk.html?brand=Xiaomi" class="brand-card">
+      <div class="brand-icon">X</div>
+      <h3>Xiaomi</h3>
+      <p>Innovation for All</p>
+    </a>
+
+    <a href="produk.html?brand=OPPO" class="brand-card">
+      <div class="brand-icon">O</div>
+      <h3>OPPO</h3>
+      <p>Camera Smartphone</p>
+    </a>
+
+    <a href="produk.html?brand=Vivo" class="brand-card">
+      <div class="brand-icon">V</div>
+      <h3>Vivo</h3>
+      <p>Style & Technology</p>
+    </a>
+
+    <a href="produk.html?brand=Infinix" class="brand-card">
+      <div class="brand-icon">I</div>
+      <h3>Infinix</h3>
+      <p>Powerful Smartphone</p>
+    </a>
+
+    <a href="produk.html?brand=Realme" class="brand-card">
+      <div class="brand-icon">R</div>
+      <h3>Realme</h3>
+      <p>Power Meets Style</p>
+    </a>
+
+    <a href="produk.html?brand=POCO" class="brand-card">
+      <div class="brand-icon">P</div>
+      <h3>POCO</h3>
+      <p>Performance First</p>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUK UNGGULAN -->
+<section class="section featured-section" id="unggulan">
+  <div class="section-header">
+    <div>
+      <span class="subtitle">BEST COLLECTION</span>
+      <h2>Produk Unggulan</h2>
+      <p>Beberapa smartphone pilihan dari katalog kami.</p>
+    </div>
+    <a href="produk.html" class="text-link">Lihat Semua →</a>
+  </div>
+
+  <div class="featured-grid">
+
+    <article class="featured-card">
+      <div class="featured-image">
+        <span class="tag">POPULAR</span>
+        <img src="images/samsung-a15.jpg" alt="Samsung Galaxy A15"
+          onerror="this.src='https://placehold.co/400x400/101d31/55b5ff?text=Samsung+A15'">
+      </div>
+      <div class="featured-info">
+        <span>Samsung</span>
+        <h3>Galaxy A15</h3>
+        <p>RAM 8GB • ROM 128GB</p>
+        <a href="produk.html" class="product-link">Lihat Produk →</a>
+      </div>
+    </article>
+
+    <article class="featured-card">
+      <div class="featured-image">
+        <span class="tag">FAVORITE</span>
+        <img src="images/iphone-13.jpg" alt="iPhone 13"
+          onerror="this.src='https://placehold.co/400x400/101d31/55b5ff?text=iPhone+13'">
+      </div>
+      <div class="featured-info">
+        <span>Apple</span>
+        <h3>iPhone 13</h3>
+        <p>RAM 4GB • ROM 128GB</p>
+        <a href="produk.html" class="product-link">Lihat Produk →</a>
+      </div>
+    </article>
+
+    <article class="featured-card">
+      <div class="featured-image">
+        <span class="tag">RECOMMENDED</span>
+        <img src="images/redmi-note-13.jpg" alt="Redmi Note 13"
+          onerror="this.src='https://placehold.co/400x400/101d31/55b5ff?text=Redmi+Note+13'">
+      </div>
+      <div class="featured-info">
+        <span>Xiaomi</span>
+        <h3>Redmi Note 13</h3>
+        <p>RAM 8GB • ROM 256GB</p>
+        <a href="produk.html" class="product-link">Lihat Produk →</a>
+      </div>
+    </article>
+
+    <article class="featured-card">
+      <div class="featured-image">
+        <span class="tag">GAMING</span>
+        <img src="images/infinix-gt20.jpg" alt="Infinix GT 20 Pro"
+          onerror="this.src='https://placehold.co/400x400/101d31/55b5ff?text=Infinix+GT20'">
+      </div>
+      <div class="featured-info">
+        <span>Infinix</span>
+        <h3>GT 20 Pro</h3>
+        <p>RAM 12GB • ROM 256GB</p>
+        <a href="produk.html" class="product-link">Lihat Produk →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo-section" id="promo">
+  <div class="promo-content">
+    <span class="subtitle">SPECIAL COLLECTION</span>
+    <h2>Temukan HP yang Cocok untuk Kamu.</h2>
+    <p>
+      Mulai dari smartphone harga terjangkau
+      hingga perangkat premium.
+    </p>
+    <a href="produk.html" class="btn-primary">Belanja Sekarang →</a>
+  </div>
+  <div class="promo-decoration">NEON<br>PHONE.</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <a href="#" class="logo">NEON<span>PHONE.</span></a>
+    <p>Smartphone Store — Find Your Next Phone.</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#kategori">Kategori</a>
+    <a href="#unggulan">Produk</a>
+    <a href="#promo">Promo</a>
+  </div>
+
+  <p class="copyright">© 2026 NEON PHONE. Demo website.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("show");
+  }
+</script>
+
+</body>
+</html>
+
