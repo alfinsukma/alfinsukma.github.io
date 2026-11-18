@@ -1,1 +1,492 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #070b14;
+    color: white;
+}
+
+:root {
+    --blue: #00aaff;
+    --dark: #070b14;
+    --card: #101827;
+}
+
+.navbar {
+    height: 80px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #090e19;
+    border-bottom: 1px solid #18283b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span, footer span {
+    color: var(--blue);
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #b8c3d5;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.cart-btn {
+    background: var(--blue);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#jumlah {
+    background: #07111d;
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.hero {
+    min-height: 570px;
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+        radial-gradient(circle at 80% 50%, #003d6b 0%, transparent 38%),
+        linear-gradient(120deg, #080d18, #101e34);
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.tag, .section-title p, .about > p:first-child {
+    color: var(--blue);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 1.15;
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.hero h1 span, .section-title span, .about span {
+    color: var(--blue);
+}
+
+.hero-content > p:not(.tag) {
+    color: #a8b5c8;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    background: white;
+    color: #07111d;
+    transform: translateY(-4px);
+}
+
+.phone-art {
+    width: 230px;
+    height: 410px;
+    padding: 10px;
+    border: 5px solid #71839b;
+    border-radius: 35px;
+    background: #101c30;
+    transform: rotate(-10deg);
+    box-shadow: 0 0 70px #008cff65;
+    animation: melayang 4s ease-in-out infinite;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 50% 40%, #00b7ff, transparent 35%),
+        linear-gradient(145deg, #071a3a, #005a9d);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-screen span {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.phone-screen small {
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.camera {
+    position: absolute;
+    top: 10px;
+    width: 55px;
+    height: 15px;
+    border-radius: 20px;
+    background: #03070d;
+}
+
+@keyframes melayang {
+    0%,100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-20px) rotate(-7deg); }
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 45px 10%;
+    background: #0b1220;
+    text-align: center;
+}
+
+.features div {
+    padding: 20px;
+}
+
+.features h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.features p {
+    color: #8998ad;
+    font-size: 12px;
+}
+
+.products {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin: 12px 0;
+}
+
+.section-title small {
+    color: #8c9aaf;
+}
+
+.tools {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.tools input, .tools select {
+    background: #101827;
+    color: white;
+    border: 1px solid #24374d;
+    padding: 15px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.tools input {
+    flex: 1;
+}
+
+.tools select {
+    cursor: pointer;
+}
+
+.tools input:focus, .tools select:focus {
+    border-color: var(--blue);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #1b2b40;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+    box-shadow: 0 10px 35px #008cff25;
+}
+
+.phone-picture {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background:
+        radial-gradient(circle, #124c78, transparent 70%),
+        linear-gradient(140deg, #15243b, #080e19);
+}
+
+.product-icon {
+    font-size: 85px;
+    filter: drop-shadow(0 10px 15px #000);
+    transition: .3s;
+}
+
+.card:hover .product-icon {
+    transform: scale(1.13) rotate(-5deg);
+}
+
+.category {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #007dc4;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info small {
+    color: var(--blue);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.card-info h3 {
+    font-size: 15px;
+    margin: 10px 0;
+    min-height: 45px;
+}
+
+.ram {
+    font-size: 12px;
+    color: #92a1b5;
+    margin-bottom: 12px;
+}
+
+.card-info h2 {
+    color: var(--blue);
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.buy-btn, .wa-btn {
+    width: 100%;
+    border: none;
+    padding: 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 7px;
+    transition: .3s;
+}
+
+.buy-btn {
+    background: #172a40;
+    color: white;
+    border: 1px solid #27618c;
+}
+
+.buy-btn:hover {
+    background: #24547a;
+}
+
+.wa-btn {
+    background: var(--blue);
+    color: white;
+}
+
+.wa-btn:hover {
+    background: #0073bd;
+}
+
+.kosong {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #a8b5c8;
+    padding: 40px;
+}
+
+.about {
+    text-align: center;
+    padding: 80px 15%;
+    background: #0c1728;
+}
+
+.about h2 {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.about > p:last-child {
+    color: #9eacc0;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: #050911;
+    color: #8998ad;
+}
+
+footer h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 12px;
+    margin: 7px;
+}
+
+@media(max-width: 1000px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .navbar {
+        padding: 0 5%;
+        height: auto;
+        min-height: 75px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    .hero {
+        padding: 65px 7%;
+        text-align: center;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .phone-art {
+        width: 175px;
+        height: 320px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .products {
+        padding: 65px 5%;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .tools {
+        flex-direction: column;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card-info {
+        padding: 12px;
+    }
+
+    .card-info h3 {
+        font-size: 13px;
+    }
+
+    .card-info h2 {
+        font-size: 14px;
+    }
+
+    .phone-picture {
+        height: 145px;
+    }
+
+    .product-icon {
+        font-size: 65px;
+    }
+
+    .about {
+        padding: 65px 7%;
+    }
+}
+
+@media(max-width: 370px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
