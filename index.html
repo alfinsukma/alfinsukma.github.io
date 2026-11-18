@@ -1,1 +1,389 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEON PHONE - Katalog 50 smartphone dengan pilihan harga dan spesifikasi.">
+  <title>NEON PHONE | Smartphone Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="#" class="logo">NEON<span>PHONE.</span></a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#catalog">Katalog HP</a>
+    <a href="#about">Tentang</a>
+  </nav>
+
+  <button class="cart-button" onclick="toggleCart()">
+    🛒 Keranjang <span id="cart-count">0</span>
+  </button>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">WELCOME TO NEON PHONE</span>
+    <h1>Find Your Next <span>Smartphone.</span></h1>
+    <p>
+      Jelajahi 50 pilihan smartphone dari berbagai merek.
+      Temukan HP sesuai kebutuhan dan anggaranmu.
+    </p>
+    <a href="#catalog" class="primary-button">Lihat Katalog →</a>
+
+    <div class="hero-stats">
+      <div><strong>50+</strong><small>Produk HP</small></div>
+      <div><strong>10+</strong><small>Merek pilihan</small></div>
+      <div><strong>24/7</strong><small>Katalog online</small></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-glow"></div>
+    <div class="hero-phone">📱</div>
+    <div class="floating-label">SMARTPHONE COLLECTION</div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div><span>📱</span><p><strong>50 Smartphone</strong><small>Banyak pilihan produk</small></p></div>
+  <div><span>💎</span><p><strong>Info Spesifikasi</strong><small>Detail setiap produk</small></p></div>
+  <div><span>💰</span><p><strong>Urutkan Harga</strong><small>Murah sampai premium</small></p></div>
+  <div><span>💬</span><p><strong>Pesan Praktis</strong><small>Checkout WhatsApp</small></p></div>
+</section>
+
+<main class="catalog" id="catalog">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">OUR COLLECTION</span>
+      <h2>Katalog Smartphone</h2>
+      <p>Temukan smartphone yang cocok untukmu.</p>
+    </div>
+    <span class="result-count" id="result-count">50 Produk</span>
+  </div>
+
+  <div class="filters">
+    <input
+      type="search"
+      id="search"
+      placeholder="🔎 Cari nama HP atau merek..."
+      oninput="renderProducts()"
+    >
+
+    <select id="brand-filter" onchange="renderProducts()">
+      <option value="all">Semua Merek</option>
+    </select>
+
+    <select id="sort" onchange="renderProducts()">
+      <option value="asc">Harga Termurah</option>
+      <option value="desc">Harga Termahal</option>
+      <option value="name">Nama A-Z</option>
+    </select>
+  </div>
+
+  <div class="price-info">
+    <span>Menampilkan katalog smartphone</span>
+    <span id="price-range">Harga tersedia</span>
+  </div>
+
+  <div class="product-grid" id="product-grid"></div>
+</main>
+
+<section class="promo">
+  <div>
+    <span class="eyebrow">NEON PHONE STORE</span>
+    <h2>Teknologi untuk Setiap Kebutuhan.</h2>
+    <p>Pilih smartphone favoritmu dan hubungi toko untuk informasi ketersediaan.</p>
+  </div>
+  <a href="#catalog" class="primary-button">Jelajahi Produk →</a>
+</section>
+
+<section class="about" id="about">
+  <span class="eyebrow">ABOUT US</span>
+  <h2>Welcome to NEON PHONE</h2>
+  <p>
+    NEON PHONE adalah contoh website katalog smartphone.
+    Website ini membantu pengunjung mencari produk berdasarkan merek,
+    spesifikasi, dan harga.
+  </p>
+</section>
+
+<footer class="footer">
+  <a href="#" class="logo">NEON<span>PHONE.</span></a>
+  <p>© 2026 NEON PHONE. Demo toko smartphone.</p>
+</footer>
+
+<!-- OVERLAY KERANJANG -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+  <div class="cart-header">
+    <h2>Keranjang Belanja</h2>
+    <button class="close-button" onclick="toggleCart()">✕</button>
+  </div>
+
+  <div class="cart-items" id="cart-items"></div>
+
+  <div class="cart-footer">
+    <div class="total-row">
+      <span>Total Belanja</span>
+      <strong id="cart-total">Rp0</strong>
+    </div>
+    <button class="checkout-button" onclick="checkout()">
+      Pesan via WhatsApp →
+    </button>
+  </div>
+</aside>
+
+<script>
+  // GANTI NOMOR INI DENGAN NOMOR WHATSAPP TOKO
+  // Format: 6281234567890 (tanpa tanda +)
+  const WHATSAPP_NUMBER = "6281234567890";
+
+  // 50 PRODUK CONTOH
+  // Harga dan spesifikasi harus disesuaikan dengan produk asli.
+  const products = [
+    {id:1,brand:"Infinix",name:"Smart 8",price:899000,ram:"3GB",storage:"64GB",camera:"13MP",battery:"5000mAh"},
+    {id:2,brand:"TECNO",name:"Pop 8",price:999000,ram:"4GB",storage:"64GB",camera:"13MP",battery:"5000mAh"},
+    {id:3,brand:"Infinix",name:"Smart 9",price:1099000,ram:"4GB",storage:"128GB",camera:"13MP",battery:"5000mAh"},
+    {id:4,brand:"Redmi",name:"A3",price:1199000,ram:"4GB",storage:"128GB",camera:"8MP",battery:"5000mAh"},
+    {id:5,brand:"TECNO",name:"Spark Go",price:1299000,ram:"4GB",storage:"128GB",camera:"13MP",battery:"5000mAh"},
+    {id:6,brand:"Infinix",name:"Hot 40i",price:1399000,ram:"8GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+    {id:7,brand:"Realme",name:"Note 50",price:1499000,ram:"4GB",storage:"128GB",camera:"13MP",battery:"5000mAh"},
+    {id:8,brand:"Samsung",name:"Galaxy A05",price:1599000,ram:"4GB",storage:"64GB",camera:"50MP",battery:"5000mAh"},
+    {id:9,brand:"Vivo",name:"Y03",price:1699000,ram:"4GB",storage:"128GB",camera:"13MP",battery:"5000mAh"},
+    {id:10,brand:"Xiaomi",name:"Redmi 13C",price:1799000,ram:"6GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+
+    {id:11,brand:"OPPO",name:"A18",price:1899000,ram:"4GB",storage:"128GB",camera:"8MP",battery:"5000mAh"},
+    {id:12,brand:"Samsung",name:"Galaxy A06",price:1999000,ram:"4GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+    {id:13,brand:"Infinix",name:"Hot 50i",price:2099000,ram:"6GB",storage:"128GB",camera:"48MP",battery:"5000mAh"},
+    {id:14,brand:"Redmi",name:"13",price:2199000,ram:"8GB",storage:"128GB",camera:"108MP",battery:"5030mAh"},
+    {id:15,brand:"Realme",name:"C61",price:2299000,ram:"8GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+    {id:16,brand:"Vivo",name:"Y18",price:2399000,ram:"6GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+    {id:17,brand:"Infinix",name:"Note 40",price:2499000,ram:"8GB",storage:"256GB",camera:"108MP",battery:"5000mAh"},
+    {id:18,brand:"POCO",name:"C75",price:2599000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"5160mAh"},
+    {id:19,brand:"Samsung",name:"Galaxy A15",price:2699000,ram:"8GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+    {id:20,brand:"OPPO",name:"A38",price:2799000,ram:"6GB",storage:"128GB",camera:"50MP",battery:"5000mAh"},
+
+    {id:21,brand:"Xiaomi",name:"Redmi Note 13",price:2999000,ram:"8GB",storage:"256GB",camera:"108MP",battery:"5000mAh"},
+    {id:22,brand:"Realme",name:"C67",price:3199000,ram:"8GB",storage:"256GB",camera:"108MP",battery:"5000mAh"},
+    {id:23,brand:"Vivo",name:"Y28",price:3399000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"6000mAh"},
+    {id:24,brand:"Samsung",name:"Galaxy A25",price:3599000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"5000mAh"},
+    {id:25,brand:"POCO",name:"M6 Pro",price:3799000,ram:"8GB",storage:"256GB",camera:"64MP",battery:"5000mAh"},
+    {id:26,brand:"Infinix",name:"GT 20 Pro",price:3999000,ram:"12GB",storage:"256GB",camera:"108MP",battery:"5000mAh"},
+    {id:27,brand:"OPPO",name:"Reno 11 F",price:4299000,ram:"8GB",storage:"256GB",camera:"64MP",battery:"5000mAh"},
+    {id:28,brand:"Xiaomi",name:"Redmi Note 13 Pro",price:4599000,ram:"12GB",storage:"512GB",camera:"200MP",battery:"5100mAh"},
+    {id:29,brand:"Vivo",name:"V30",price:4999000,ram:"12GB",storage:"256GB",camera:"50MP",battery:"5000mAh"},
+    {id:30,brand:"Samsung",name:"Galaxy A35",price:5299000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"5000mAh"},
+
+    {id:31,brand:"Apple",name:"iPhone 11",price:5999000,ram:"4GB",storage:"128GB",camera:"12MP",battery:"3110mAh"},
+    {id:32,brand:"Apple",name:"iPhone 12",price:6999000,ram:"4GB",storage:"128GB",camera:"12MP",battery:"2815mAh"},
+    {id:33,brand:"Samsung",name:"Galaxy S23 FE",price:7999000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"4500mAh"},
+    {id:34,brand:"Apple",name:"iPhone 13",price:8999000,ram:"4GB",storage:"128GB",camera:"12MP",battery:"3240mAh"},
+    {id:35,brand:"Xiaomi",name:"Xiaomi 14T",price:9999000,ram:"12GB",storage:"512GB",camera:"50MP",battery:"5000mAh"},
+    {id:36,brand:"Samsung",name:"Galaxy S24",price:11999000,ram:"8GB",storage:"256GB",camera:"50MP",battery:"4000mAh"},
+    {id:37,brand:"Apple",name:"iPhone 14",price:12999000,ram:"6GB",storage:"128GB",camera:"12MP",battery:"3279mAh"},
+    {id:38,brand:"Samsung",name:"Galaxy S24 Ultra",price:17999000,ram:"12GB",storage:"512GB",camera:"200MP",battery:"5000mAh"},
+    {id:39,brand:"Apple",name:"iPhone 15 Pro",price:19999000,ram:"8GB",storage:"256GB",camera:"48MP",battery:"3274mAh"},
+    {id:40,brand:"Apple",name:"iPhone 16 Pro Max",price:24999000,ram:"8GB",storage:"512GB",camera:"48MP",battery:"4685mAh"},
+
+    {id:41,brand:"Samsung",name:"Galaxy Z Flip6",price:16999000,ram:"12GB",storage:"256GB",camera:"50MP",battery:"4000mAh"},
+    {id:42,brand:"Xiaomi",name:"Xiaomi 14 Ultra",price:16999000,ram:"16GB",storage:"512GB",camera:"50MP",battery:"5000mAh"},
+    {id:43,brand:"Apple",name:"iPhone 15",price:13999000,ram:"6GB",storage:"256GB",camera:"48MP",battery:"3349mAh"},
+    {id:44,brand:"Apple",name:"iPhone 15 Pro Max",price:21999000,ram:"8GB",storage:"512GB",camera:"48MP",battery:"4422mAh"},
+    {id:45,brand:"Samsung",name:"Galaxy S24+",price:15999000,ram:"12GB",storage:"512GB",camera:"50MP",battery:"4900mAh"},
+    {id:46,brand:"Google",name:"Pixel 8 Pro",price:14999000,ram:"12GB",storage:"256GB",camera:"50MP",battery:"5050mAh"},
+    {id:47,brand:"Apple",name:"iPhone 16",price:15999000,ram:"8GB",storage:"256GB",camera:"48MP",battery:"3561mAh"},
+    {id:48,brand:"Samsung",name:"Galaxy Z Fold6",price:26999000,ram:"12GB",storage:"512GB",camera:"50MP",battery:"4400mAh"},
+    {id:49,brand:"Apple",name:"iPhone 16 Pro",price:21999000,ram:"8GB",storage:"512GB",camera:"48MP",battery:"3582mAh"},
+    {id:50,brand:"Apple",name:"iPhone 16 Pro Max",price:24999000,ram:"8GB",storage:"1TB",camera:"48MP",battery:"4685mAh"}
+  ];
+
+  let cart = [];
+
+  function rupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0
+    }).format(number);
+  }
+
+  // Membuat pilihan merek secara otomatis
+  function loadBrands() {
+    const brands = [...new Set(products.map(p => p.brand))].sort();
+    const select = document.getElementById("brand-filter");
+
+    brands.forEach(brand => {
+      const option = document.createElement("option");
+      option.value = brand;
+      option.textContent = brand;
+      select.appendChild(option);
+    });
+  }
+
+  // Menampilkan produk
+  function renderProducts() {
+    const keyword = document.getElementById("search").value.toLowerCase();
+    const brand = document.getElementById("brand-filter").value;
+    const sort = document.getElementById("sort").value;
+
+    let filtered = products.filter(p => {
+      const matchText = (p.brand + " " + p.name).toLowerCase().includes(keyword);
+      const matchBrand = brand === "all" || p.brand === brand;
+      return matchText && matchBrand;
+    });
+
+    if (sort === "asc") filtered.sort((a,b) => a.price - b.price);
+    if (sort === "desc") filtered.sort((a,b) => b.price - a.price);
+    if (sort === "name") filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+    document.getElementById("result-count").textContent =
+      filtered.length + " Produk";
+
+    if (filtered.length) {
+      const prices = filtered.map(p => p.price);
+      document.getElementById("price-range").textContent =
+        rupiah(Math.min(...prices)) + " – " + rupiah(Math.max(...prices));
+    } else {
+      document.getElementById("price-range").textContent = "Tidak ada produk";
+    }
+
+    document.getElementById("product-grid").innerHTML = filtered.map(p => `
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="brand-label">${p.brand}</span>
+          <div class="phone-shape">
+            <div class="phone-camera"></div>
+            <div class="phone-screen">NEON</div>
+          </div>
+          <span class="product-number">#${String(p.id).padStart(2,"0")}</span>
+        </div>
+
+        <div class="product-info">
+          <span class="product-brand">${p.brand}</span>
+          <h3>${p.name}</h3>
+
+          <div class="spec-list">
+            <span>RAM ${p.ram}</span>
+            <span>${p.storage}</span>
+            <span>${p.camera}</span>
+            <span>${p.battery}</span>
+          </div>
+
+          <div class="product-bottom">
+            <div>
+              <small>Harga</small>
+              <strong>${rupiah(p.price)}</strong>
+            </div>
+            <button class="add-button" onclick="addToCart(${p.id})" aria-label="Tambah ${p.name} ke keranjang">+</button>
+          </div>
+        </div>
+      </article>
+    `).join("") || '<div class="empty">Produk tidak ditemukan. Coba kata kunci lain.</div>';
+  }
+
+  // Keranjang
+  function addToCart(id) {
+    const item = cart.find(p => p.id === id);
+    if (item) item.qty++;
+    else cart.push({id, qty:1});
+    updateCart();
+  }
+
+  function changeQty(id, amount) {
+    const item = cart.find(p => p.id === id);
+    if (!item) return;
+    item.qty += amount;
+    if (item.qty <= 0) {
+      cart = cart.filter(p => p.id !== id);
+    }
+    updateCart();
+  }
+
+  function updateCart() {
+    const count = cart.reduce((sum,item) => sum + item.qty, 0);
+    const total = cart.reduce((sum,item) => {
+      const product = products.find(p => p.id === item.id);
+      return sum + product.price * item.qty;
+    }, 0);
+
+    document.getElementById("cart-count").textContent = count;
+    document.getElementById("cart-total").textContent = rupiah(total);
+
+    document.getElementById("cart-items").innerHTML = cart.length
+      ? cart.map(item => {
+          const p = products.find(product => product.id === item.id);
+          return `
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <strong>${p.brand} ${p.name}</strong>
+                <small>${rupiah(p.price)} × ${item.qty}</small>
+              </div>
+              <div class="quantity">
+                <button onclick="changeQty(${p.id},-1)">−</button>
+                <span>${item.qty}</span>
+                <button onclick="changeQty(${p.id},1)">+</button>
+              </div>
+            </div>
+          `;
+        }).join("")
+      : '<p class="empty-cart">Keranjang masih kosong.</p>';
+  }
+
+  function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
+  }
+
+  // Checkout WhatsApp
+  function checkout() {
+    if (!cart.length) {
+      alert("Keranjang masih kosong!");
+      return;
+    }
+
+    if (WHATSAPP_NUMBER === "6281234567890") {
+      alert("Silakan ganti nomor WhatsApp toko pada kode index.html terlebih dahulu.");
+      return;
+    }
+
+    const lines = cart.map(item => {
+      const p = products.find(product => product.id === item.id);
+      return `${p.brand} ${p.name} x${item.qty} = ${rupiah(p.price * item.qty)}`;
+    });
+
+    const total = cart.reduce((sum,item) => {
+      const p = products.find(product => product.id === item.id);
+      return sum + p.price * item.qty;
+    },0);
+
+    const message = [
+      "Halo NEON PHONE, saya ingin memesan:",
+      "",
+      ...lines,
+      "",
+      "Total: " + rupiah(total),
+      "",
+      "Mohon informasi ketersediaan produk. Terima kasih."
+    ].join("\n");
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER +
+      "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+
+  loadBrands();
+  renderProducts();
+  updateCart();
+</script>
+
+</body>
+</html>
+
