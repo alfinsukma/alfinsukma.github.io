@@ -1,1 +1,239 @@
 
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALV STORE - Toko HP Modern</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">ALV<span>STORE.</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#tentang">Tentang</a>
+    </nav>
+
+    <button class="cart-btn" onclick="lihatKeranjang()">
+        🛒 Keranjang <span id="jumlah">0</span>
+    </button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">WELCOME TO ALV STORE</p>
+        <h1>SMARTPHONE<br>
+            <span>MASA DEPAN.</span>
+        </h1>
+        <p>
+            Temukan smartphone impianmu.
+            Harga terbaik, pilihan terlengkap,
+            dan kualitas terpercaya.
+        </p>
+        <a href="#produk" class="hero-btn">BELANJA SEKARANG →</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="phone-art">
+            <div class="phone-screen">
+                <div class="camera"></div>
+                <span>ALV</span>
+                <small>SMARTPHONE STORE</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div>🚚 <h3>Pengiriman Cepat</h3>
+        <p>Ke seluruh Indonesia</p></div>
+    <div>🛡️ <h3>Produk Berkualitas</h3>
+        <p>Pilihan smartphone terpercaya</p></div>
+    <div>💬 <h3>Layanan Ramah</h3>
+        <p>Mudah menghubungi penjual</p></div>
+</section>
+
+<section class="products" id="produk">
+    <div class="section-title">
+        <p>OUR COLLECTION</p>
+        <h2>PRODUK <span>SMARTPHONE</span></h2>
+        <small>20 pilihan HP dari harga ekonomis hingga premium.</small>
+    </div>
+
+    <div class="tools">
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Cari nama HP..."
+            oninput="tampilkanProduk()"
+        >
+
+        <select id="kategori" onchange="tampilkanProduk()">
+            <option value="Semua">Semua Kategori</option>
+            <option value="Entry">Entry Level</option>
+            <option value="Menengah">Menengah</option>
+            <option value="Premium">Premium</option>
+        </select>
+
+        <select id="urutan" onchange="tampilkanProduk()">
+            <option value="termurah">Harga Termurah</option>
+            <option value="termahal">Harga Termahal</option>
+        </select>
+    </div>
+
+    <div class="product-grid" id="daftarProduk"></div>
+</section>
+
+<section class="about" id="tentang">
+    <p>ABOUT US</p>
+    <h2>KENAPA BELANJA DI <span>ALV STORE?</span></h2>
+    <p>
+        ALV STORE menyediakan berbagai pilihan smartphone
+        untuk kebutuhan sehari-hari, gaming, fotografi,
+        dan pekerjaan.
+    </p>
+</section>
+
+<footer>
+    <h2>ALV<span>STORE.</span></h2>
+    <p>© 2026 ALV STORE. All Rights Reserved.</p>
+    <p>Modern Smartphone Shopping Experience.</p>
+</footer>
+
+<script>
+const produk = [
+    {nama:"Xiaomi Redmi A3", harga:1199000, kategori:"Entry", ram:"3GB / 64GB", emoji:"📱"},
+    {nama:"Samsung Galaxy A06", harga:1399000, kategori:"Entry", ram:"4GB / 64GB", emoji:"📱"},
+    {nama:"Infinix Smart 9", harga:1499000, kategori:"Entry", ram:"4GB / 128GB", emoji:"📱"},
+    {nama:"itel P55", harga:1599000, kategori:"Entry", ram:"8GB / 128GB", emoji:"📱"},
+    {nama:"Redmi 14C", harga:1699000, kategori:"Entry", ram:"6GB / 128GB", emoji:"📱"},
+    {nama:"POCO C75", harga:1799000, kategori:"Entry", ram:"6GB / 128GB", emoji:"📱"},
+    {nama:"Samsung Galaxy A16", harga:2499000, kategori:"Menengah", ram:"8GB / 128GB", emoji:"📱"},
+    {nama:"Redmi Note 14", harga:2699000, kategori:"Menengah", ram:"8GB / 256GB", emoji:"📱"},
+    {nama:"Infinix Note 50", harga:2899000, kategori:"Menengah", ram:"8GB / 256GB", emoji:"📱"},
+    {nama:"POCO M7 Pro", harga:2999000, kategori:"Menengah", ram:"8GB / 256GB", emoji:"📱"},
+    {nama:"Samsung Galaxy A26", harga:3999000, kategori:"Menengah", ram:"8GB / 256GB", emoji:"📱"},
+    {nama:"Xiaomi Redmi Note 14 Pro", harga:4499000, kategori:"Menengah", ram:"8GB / 256GB", emoji:"📱"},
+    {nama:"POCO X7 Pro", harga:4999000, kategori:"Premium", ram:"12GB / 512GB", emoji:"📱"},
+    {nama:"Samsung Galaxy A56", harga:5999000, kategori:"Premium", ram:"12GB / 256GB", emoji:"📱"},
+    {nama:"Google Pixel 9", harga:9999000, kategori:"Premium", ram:"12GB / 256GB", emoji:"📱"},
+    {nama:"iPhone 15", harga:10999000, kategori:"Premium", ram:"128GB", emoji:"📱"},
+    {nama:"Samsung Galaxy S25", harga:13999000, kategori:"Premium", ram:"12GB / 256GB", emoji:"📱"},
+    {nama:"Xiaomi 15 Ultra", harga:16999000, kategori:"Premium", ram:"16GB / 512GB", emoji:"📱"},
+    {nama:"iPhone 16 Pro", harga:19999000, kategori:"Premium", ram:"256GB", emoji:"📱"},
+    {nama:"Samsung Galaxy S25 Ultra", harga:21999000, kategori:"Premium", ram:"12GB / 512GB", emoji:"📱"}
+];
+
+let keranjang = [];
+
+function rupiah(angka) {
+    return new Intl.NumberFormat("id-ID", {
+        style:"currency",
+        currency:"IDR",
+        maximumFractionDigits:0
+    }).format(angka);
+}
+
+function tampilkanProduk() {
+    const tempat = document.getElementById("daftarProduk");
+    const cari = document.getElementById("search").value.toLowerCase();
+    const kategori = document.getElementById("kategori").value;
+    const urutan = document.getElementById("urutan").value;
+
+    let hasil = produk.filter(p =>
+        p.nama.toLowerCase().includes(cari) &&
+        (kategori === "Semua" || p.kategori === kategori)
+    );
+
+    hasil.sort((a,b) =>
+        urutan === "termurah" ? a.harga-b.harga : b.harga-a.harga
+    );
+
+    tempat.innerHTML = "";
+
+    if (hasil.length === 0) {
+        tempat.innerHTML = "<p class='kosong'>Produk tidak ditemukan.</p>";
+        return;
+    }
+
+    hasil.forEach((p) => {
+        const index = produk.indexOf(p);
+
+        tempat.innerHTML += `
+            <div class="card">
+                <div class="phone-picture">
+                    <span class="product-icon">${p.emoji}</span>
+                    <span class="category">${p.kategori}</span>
+                </div>
+
+                <div class="card-info">
+                    <small>SMARTPHONE</small>
+                    <h3>${p.nama}</h3>
+                    <p class="ram">💾 ${p.ram}</p>
+                    <h2>${rupiah(p.harga)}</h2>
+
+                    <button class="buy-btn" onclick="tambahKeranjang(${index})">
+                        + Keranjang
+                    </button>
+                    <button class="wa-btn" onclick="beliWhatsApp(${index})">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function tambahKeranjang(index) {
+    keranjang.push(produk[index]);
+    document.getElementById("jumlah").textContent = keranjang.length;
+    alert(produk[index].nama + " berhasil ditambahkan!");
+}
+
+function lihatKeranjang() {
+    if (keranjang.length === 0) {
+        alert("Keranjang masih kosong!");
+        return;
+    }
+
+    let pesan = "KERANJANG ALV STORE\n\n";
+    let total = 0;
+
+    keranjang.forEach((p, i) => {
+        pesan += `${i+1}. ${p.nama} - ${rupiah(p.harga)}\n`;
+        total += p.harga;
+    });
+
+    pesan += `\nTOTAL: ${rupiah(total)}`;
+
+    if (confirm(pesan + "\n\nLanjut pesan melalui WhatsApp?")) {
+        const nomor = "6281234567890";
+        window.open(
+            "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
+            "_blank"
+        );
+    }
+}
+
+function beliWhatsApp(index) {
+    const p = produk[index];
+    const nomor = "6281234567890";
+
+    const pesan = `Halo ALV STORE, saya ingin membeli ${p.nama} dengan harga ${rupiah(p.harga)}. Apakah masih tersedia?`;
+
+    window.open(
+        "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
+        "_blank"
+    );
+}
+
+tampilkanProduk();
+</script>
+
+</body>
+</html>
